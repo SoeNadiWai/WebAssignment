@@ -332,13 +332,13 @@ namespace MYCHARITY.Controllers
             var identity = AuthenticationManager.GetExternalIdentity(DefaultAuthenticationTypes.ExternalCookie);
             var accessToken = identity.FindFirstValue("FacebookAccessToken");
             dynamic userInfo = new FacebookClient(accessToken).Get("/me?fields=email,first_name,last_name");
-            var Facebookuser = new AspNetUserLogin
-            {
-                Email = userInfo["email"],
-                UserName = userInfo["first_name"]+userInfo["last_name"]
+            ////var Facebookuser = new AspNetUser
+            ////{
+            ////    Email = userInfo["email"],
+            ////    UserName = userInfo["first_name"]+userInfo["last_name"]
                
 
-            };
+            ////};
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {

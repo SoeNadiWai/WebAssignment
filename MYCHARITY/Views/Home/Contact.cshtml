@@ -3,12 +3,48 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+<h3>Get My Charity Email by this QR Code!</h3>
+<div id="right">
+    <section>
+        <div style="width:250px; height:250px">  <div id="qrcode"></div></div>
+    </section>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+          var qrcode = new QRCode("qrcode");
+          function makeCode() {
+             //var elText = document.getElementById("text");
+             // if (!elText.value) {
+             //     alert("Input a text");
+             //     elText.focus();
+             //     return;
+             // }
+              //qrcode.makeCode(elText.value);
+              var model = @Html.Raw(Json.Encode(Model));
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
+              qrcode.makeCode("mycharity@gmail.com");
+          }
+          makeCode();
+          $("#text").
+              on("blur", function () {
+                  makeCode();
+              }).
+              on("keydown", function (e) {
+                  if (e.keyCode == 13) {
+                      makeCode();
+                  }
+              });
+    </script>
+    
+</div>
+@*<div style="margin-left:20px">
+    <img src="~/Content/Logo.png" style="width:600px;width:600px">
+</div>*@
+<address style="margin-top:30px">
+    My Charity Chairty and Volunteering<br />
+    Yankin, East Horse Racing St<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    01-400557
 </address>
 
 <address>
