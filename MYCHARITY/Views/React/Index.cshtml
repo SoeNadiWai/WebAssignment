@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<h2>Display tabular data from database using react js</h2>
+@* HTML *@
+<div id="griddata" class="container">
+
+</div>
+@* Bootstrap CSS *@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+@* Jquery *@
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+@* React Library *@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+@* JSX parser library *@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+@* ReactJS components *@
+<script type="text/babel">
+    @* Here we will create 2 react component 1 for rows and another for table  *@
+    var EmployeeGridRow = React.createClass({
+    render : function(){
+    return (
+    <tr>
+        <td>{this.props.item.UserName}</td>
+        <td>{this.props.item.Email}</td>
+        <td>{this.props.item.PhoneNumber}</td>
+        <td>{this.props.item.OrgType}</td>
+        <td>{this.props.item.Address}</td>
+        @*<td>{this.props.item.PasswordHash}</td>
+            <td>{this.props.item.EmailConfirmed}</td>
+            <td>{this.props.item.SecurityStamp}</td>
+            <td>{this.props.item.Email}</td>
+            <td>{this.props.item.PhoneNumber}</td>
+            <td>{this.props.item.PhoneNumberConfirmed}</td>
+            <td>{this.props.item.TwoFactorEnabled}</td>
+            <td>{this.props.item.LockoutEndDateUtc}</td>
+            <td>{this.props.item.LockoutEnabled}</td>
+            <td>{this.props.item.AccessFailedCount}</td>
+            <td>{this.props.item.BirthDate}</td>
+            <td>{this.props.item.OrgStatus}</td>
+            <td>{this.props.item.Description}</td>
+            <td>{this.props.item.Orglat}</td>
+            <td>{this.props.item.Orglong}</td>*@
+    </tr>
+    );
+    }
+    });
+
+    var EmployeeGridTable = React.createClass({
+    getInitialState: function(){
+    return {
+    items:[]
+    }
+    },
+    componentDidMount:function(){
+    @* Fetch data via ajax *@
+    $.get(this.props.dataUrl, function(data){
+    if(this.isMounted()){
+    this.setState({
+    items: data
+    });
+    }
+    }.bind(this));
+    },
+    render : function(){
+    var rows = [];
+    this.state.items.forEach(function(item){
+    rows.push(
+
+    <EmployeeGridRow key={item.Id} item={item} />);
+    });
+    return (
+    <table className="table table-bordered table-responsive">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>OrgType</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {rows}
+        </tbody>
+    </table>);
+    }
+    });
+    ReactDOM.render(
+    <EmployeeGridTable dataUrl="/React/GetEmployeeData" />,
+    document.getElementById('griddata')
+    );
+</script>

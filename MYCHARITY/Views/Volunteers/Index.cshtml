@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MYCHARITY.Volunteer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VPreferType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VPreferType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VID })
+        </td>
+    </tr>
+}
+
+</table>

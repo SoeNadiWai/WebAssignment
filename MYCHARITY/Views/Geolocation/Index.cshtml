@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" id="bootstrap-css" media="all" />
+<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/style/StyleSheet.css" />
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            margin-top:10px;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80%;
+            height:80%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id='map'></div>
+    <style>
+        .marker {
+  background-image: url('/Content/marker.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+        .mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+    </style>
+    <script>
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic29lLW5hZGktd2FpIiwiYSI6ImNqcjBnY3RnZTA5eG0zeXFlcTdxeDB5ZnQifQ.HJwqdJph1NPBRNMN236W2A';
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/streets-v9',
+  center: [96.199379, 16.871311],
+  zoom: 4
+});
+
+var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [93.976693, 19.861722]
+        },
+        properties: {
+            title: 'Mapbox',
+            description:'Rakhine is the most violent plac in Myanmar during the whole year due the conflict of local and immigrated rohinjya.</p>',
+
+        }
+    },
+    {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [97.392079, 25.398463]
+        },
+        properties: {
+            title: 'Mapbox',
+            description:'Myit Sone is an area where a lot of people got into troubles because of force removal of houses'
+        }
+    },
+    {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [95.218037, 17.258395]
+        },
+        properties: {
+            title: 'Mapbox',
+            description:'Ayeyarwaddy Flood Victims! Due to the past storm, there were lot of damage and need donation for recovery processes'
+
+        }
+    },
+    {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [96.093652, 16.909252]
+        },
+        properties: {
+            title: 'Mapbox',
+            description: 'Eden Center for disable children:The school of disable children is in need of fund for re-innovation'
+        }
+    }
+    ]
+};
+// add markers to map
+geojson.features.forEach(function (marker) {
+
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+});
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+.addTo(map);
+    </script>
+
+</body>
+</html>
+
+<div class="container" style="margin-top:450px">
+    <h2>Charitable Places Description</h2>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card">
+            <img class="card-img-top" src="http://www.asianews.it/files/img/MYANMAR_-_karuna_profughi_ok.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Myit Sone</h4>
+                <div class="meta">
+                    <a href="#">Kachin State</a>
+                </div>
+                <div class="card-text">
+                    People around Myit Sone Area needs donations and volunteering activities from many people!
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="float-right">Joined in 2019</span>
+                <span><i class=""></i>75 Friends</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card">
+            <img class="card-img-top" src="http://salem-news.com/stimg/october062012/rohingyas_victims.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Rohinjya</h4>
+                <div class="meta">
+                    <a href="#">Rakhine</a>
+                </div>
+                <div class="card-text">
+                  Due to local religious issues, there were several small attacks and violence in this area and victims are in need!
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="float-right">Joined in 2019</span>
+                <span><i class=""></i>75 Friends</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card">
+            <img class="card-img-top" src="http://climatechange.searca.org/images/harvestedphotos_mar2015/A19242BC-9FB4-40FA-A606-05501343B74A_cx0_cy1_cw0_mw1024_s_n_r1.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Ayeyarwaddy Flood Victims</h4>
+                <div class="meta">
+                    <a href="#">Ayeyarwaddy District</a>
+                </div>
+                <div class="card-text">
+                    Due to the sever storm last month! The Ayeyarwaddy region has been flooded and in need to supplies!
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="float-right">Joined in 2018</span>
+                <span><i class=""></i>75 Friends</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card">
+            <img class="card-img-top" src="http://www.asianews.it/files/img/MYANMAR_-_centro_disabili_ok.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Yangon Eden School</h4>
+                <div class="meta">
+                    <a href="#">Yangon</a>
+                </div>
+                <div class="card-text">
+                  Volunteers and donations are necessary for this school of disable children.
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="float-right">Joined in 2018</span>
+                <span><i class=""></i>75 Friends</span>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+@*<address>
+        One Microsoft Way<br />
+        Redmond, WA 98052-6399<br />
+        <abbr title="Phone">P:</abbr>
+        425.555.0100
+    </address>
+
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>*@
+
+
+

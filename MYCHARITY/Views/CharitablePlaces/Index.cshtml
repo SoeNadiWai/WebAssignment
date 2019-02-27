@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+@*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" media="all" />*@
+<link rel="stylesheet" href="css/bootstrap.css" id="bootstrap-css" media="all" />
+<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=363990444191790&autoLogAppEvents=1"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/style/StyleSheet.css" />
+
+<h2>Charitable Places</h2>
+
+<hr>
+@*<div id="fb-root"></div>*@
+
+
+
+
+
+@*<div class="container">*@
+@*<div class="row">*@
+@*<div class="col-xs-18 col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="http://placehold.it/500x250/EEE">
+            <div class="caption" id="caption">
+                <h4 id="heading"></h4>
+                <p id="pdetail"></p>
+                <a href="#" class="btn btn-default btn-xs pull-right" role="button"><i class="glyphicon glyphicon-edit"></i></a> <a href="#" class="btn btn-info btn-xs" role="button" id="btnAllUser">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a>
+            </div>
+        </div>
+    </div>*@
+
+<div class="container">
+    <div class="row">
+        <div style="display:table-cell">
+            <div id="main-content" style="display:flex">
+
+            </div>
+
+        </div>
+        <div id="fb-root"></div>
+        <input type="button" id="share_button" value="Share on Facebook" class='btn btn-default btn-md' />
+
+    </div>
+</div>
+
+<script>
+                $(document).ready(function () {
+                    alert('here!');
+
+                    //$("#btnAllUser").click(function () {
+
+                    $.ajax({
+                            url: "@Url.Action("GetEvents","CharitablePlaces")",
+                        type: "GET",
+                        dataType: "json",
+                        data:'',
+                        success: function (data) {
+                            //var json = JSON.parse(data);
+                            //alert(json["Pname"]);
+                            alert(data[0].Pname)
+                            loadData(data);
+                        },
+                        error: function () {
+                            alert("Failed! Please try again.");
+                        }
+                    });
+
+                    //});
+
+
+                    var events = [];
+                    function loadData(data) {
+                        alert('here!');
+                    events = [];
+                    $.each(data, function (i, v) {
+                        events.push({
+                            pid: v.PID,
+                            pname:v.Pname,
+                            orgid:v.RequestedOrgID,
+                            orgname:v.RequestedOrgName,
+                            address:v.Address,
+                            address: v.Address,
+                            plat:v.Placelat,
+                            plong:v.Placelong,
+                            description: v.Description,
+                            image:v.image
+                        });
+
+                        $('#main-content').append( "<div class='thumbnail'>" +
+                                           "<img src='" + events[i].image + "'/>" +
+                                            "<div>" +
+                                            "<h3>" + events[i].pname + "</h3>" +
+                                            "<p>" + events[i].description + "</p>" +
+                                            "<p>" + events[i].orgname + "</p>" +
+                                             //"<button ONCLICK='window.location.href='/CharitablePlaces/Index''>" + "Donate" + "</button>" +
+                                            "<a href='/Donations/Create' asp-action='Index'class='btn btn-info btn-md' role='button' id='btnAllUser'>" + "Click to Donate" +
+                                            "</a>" +
+                                            //"<a href='#'class='btn btn-default btn-md' role='button'>" + "Share on Facebook" +
+                                            //"</a>" +
+                                             "</div></div>")
+
+                        $('#share_button').click(function (e) {
+                            e.preventDefault();
+                            FB.ui(
+                            {
+                                method: 'feed',
+                                name: 'Kachin State', // Share Title
+                                @*link: '@Request.Url.AbsoluteUri', // Share Url*@
+                                picture: events[i].image, // Share image
+                                caption: events[i].pname, // Share caption
+                                description: events[i].description, // Share Description
+                                message: 'Find your best self in helping others!' // Share Any Message!.
+                            });
+                        });
+
+
+                    });
+
+
+                                }
+
+
+                })
+
+
+
+
+</script>
+<script>
+                                            window.fbAsyncInit = function () {
+                                                FB.init({
+                                                    appId: '349927422280865',
+                                                    status: true,
+                                                    cookie: true,
+                                                    xfbml: true
+                                                });
+                                            };
+                                            (function () {
+                                                var e = document.createElement('script');
+                                                e.async = true;
+                                                e.src = document.location.protocol +
+                                                    '//connect.facebook.net/en_US/all.js';
+                                                document.getElementById('fb-root').appendChild(e);
+                                            }());
+</script>
+
+

@@ -1,0 +1,58 @@
+﻿@model MYCHARITY.Volunteer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Volunteer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VPreferType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VPreferType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

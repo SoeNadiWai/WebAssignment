@@ -1,0 +1,177 @@
+﻿@model MYCHARITY.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<body style="background-color:black">
+    <h2 style="color:white;margin-left:20px">Register</h2>
+    <div style="background-color:green;align-items:center;width:1100px">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            //<div id="user">
+
+            @Html.AntiForgeryToken()
+            <h3 style="color:white;margin-left:10px">Create a new account</h3>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="txtdob">
+                @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+
+                </div>
+            </div>
+            @*<div class="form-group">
+                    @Html.LabelFor(m => m.Phonenumber, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Phonenumber, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    </div>
+                </div>*@
+
+            // </div>
+
+
+
+            @*<form id="org" style="visibility:hidden">*@
+            //<div id="org">
+            @*@Html.AntiForgeryToken()
+                <h4>Create a new account.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    </div>
+                </div>*@
+            <div class="form-group" id="txtorgtype">
+                @Html.LabelFor(m => m.OrgType, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.OrgType, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="txtstatus">
+                @Html.LabelFor(m => m.OrgStatus, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.OrgStatus, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="txtdes">
+                @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Phonenumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Phonenumber, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="txtorglat">
+                @Html.LabelFor(m => m.Orglat, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Orglat, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="txtorglong">
+                @Html.LabelFor(m => m.Orglong, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Orglong, new { @class = "form-control" })
+                </div>
+            </div>
+            // </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="btnregister" class="btn btn-default" value="Register" style="color:white;background-color:black" />
+                    <input type="button" id="btnchoose" class="btn btn-default" value="Register as Organization" style="color:white;background-color:black" />
+                </div>
+            </div>
+        }
+</div>
+    </body>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+                <script>
+                    $("#txtorgtype").hide();
+                    $("#txtstatus").hide();
+                    $("#txtdes").hide();
+                    $("#txtorglat").hide();
+                    $("#txtorglong").hide();
+                    //$("#btnregister").click(function () {
+                    //    $("#user").hide();
+                    //$("#org").validate({
+                    //    ignore: ':hidden'
+                    //});
+                    //});
+
+
+                    $("#btnchoose").click(function () {
+                        alert("button"); // Remove this line if it worked
+                        //$("#user").hide();
+                        //ignore:':hidden'
+                        // $("#org").show();
+                        $("#txtorgtype").show();
+                        $("#txtstatus").show();
+                        $("#txtdes").show();
+                        $("#txtorglat").show();
+                        $("#txtorglong").show();
+                    });
+                </script>
+            }

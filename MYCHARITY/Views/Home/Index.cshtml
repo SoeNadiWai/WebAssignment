@@ -1,0 +1,270 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" media="all" />
+<script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/style/StyleSheet.css" />
+
+
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>*@
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+<!------ Include the above in your HEAD tag ---------->
+<div style="background-color:darkgreen">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bs-carousel" data-slide-to="1"></li>
+            <li data-target="#bs-carousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item slides active">
+                <div class="slide-1"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>My Charity</h1>
+                        <h3>Decorate the world with donations!</h3>
+                    </hgroup>
+                   
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="slide-2"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>Be a Giver!</h1>
+                        <h3>Find your best self in fulfilling others!</h3>
+                    </hgroup>
+                    
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="slide-3"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>We are amazing</h1>
+                        <h3>Enhance your donation with My Charity</h3>
+                    </hgroup>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color:black;height:250px">
+    <div class="container">
+        <p style="font-size:19px;color:white;text-align:center;margin-top:10px">
+            My Charity Application is a charity and volunteering platform that connects charity organizations and donors with<br />
+            victims and people in need around the world! My charity app offers two types of Users: Normal User and Organization <br />
+            type user! Operating events on calendar can be done by organizational type users! Events that request for donations and<br />
+            volunteers will be vividly shown on the calendar for normal users. Besides, charitable places can be seen on map and donate<br />
+            at once through this app! If users want to share on their social media accounts, Facebook is integrated in this app.Normal<br />
+            users can register as volunteers to participate in requested volunteering events.
+        </p>
+        <p style="font-family:Elephant;font-style:italic;font-size:28px;text-align:center;color:green">Find your best self in helping others!</p>
+    </div>
+        </div>
+    @*<footer class="container-fluid bg-primary py-5" style="margin-top:20px">
+        <div class="container">
+            @*<div class="row">*@
+                @*<div class="col-md-6">
+                    <p>
+                        My Charity Application is a charity and volunteering platform that connect charity organizations and donors with<br />
+                        victims and people in need around the world! My charity app offers two types of Users: Normal User and Organization <br />
+                        type user! Operating events on calendar can be done by organizational type users! Events that request for donations and<br />
+                        volunteers will be vividly shown on the calendar for normal users. Besides, charitable places can be seen on map and donate<br />
+                        at once through this app! If users want to share on their social media accounts, Facebook is integrated in this app.Normal<br />
+                        users can register as volunteers to participate in requested volunteering events.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>*@
+    <div class="container" style="position:inherit;margin-right:30px">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-4">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-globe"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Charitable Places</span>
+                        <span class="dash-box-title">Lesson Plan</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/CharitablePlaces/Index'">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-3">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Event Calendar</span>
+                        <span class="dash-box-title">Learning Resources</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/Calendar/Index'">More Info</button>
+                        @*<button>More Info</button>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-2">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Geolocation</span>
+                        <span class="dash-box-title">Enrichment Content</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/Geolocation/Index'">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-1">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-hand-up"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Volunteers</span>
+                        <span class="dash-box-title">Enrichment Content</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/VolunteerActivities/Index'">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-4">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-flag"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Organizations</span>
+                        <span class="dash-box-title">Enrichment Content</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/AspNetUsers/Index'">More Info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dash-box dash-box-color-3">
+                    <div class="dash-box-icon">
+                        <i class="glyphicon glyphicon-heart"></i>
+                    </div>
+                    <div class="dash-box-body">
+                        <span class="dash-box-count">Wishlist</span>
+                        <span class="dash-box-title">Enrichment Content</span>
+                    </div>
+
+                    <div class="dash-box-action">
+                        <button ONCLICK="window.location.href='/Test/Index'">More Info</button>
+                        @*@using (Html.BeginForm("Index", "Test", FormMethod.Get))
+                            {
+                                <input type="submit" value="Click me" />
+                            }*@
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <footer class="container-fluid bg-grey py-5" style="margin-top:20px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="logo-part">
+                                <h3>My Charity</h3>
+                                @*<img src="https://i.ibb.co/sHZz13b/logo.png" class="w-50 logo-footer" style="width:50px">*@
+                                <p>No (12) Bo Gyote St, Ph 01400998</p>
+                                <p>Feel free to connect us</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-4">
+                            <h6> About Company</h6>
+                            <p>Keep in touch with us!</p>
+                            <a href="#" class="btn-footer"> More Info </a><br>
+                            <a href="#" class="btn-footer"> Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 px-4">
+                            <h6> Help us</h6>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li> <a href="#"> Home</a> </li>
+                                        <li> <a href="#"> About</a> </li>
+                                        @*<li> <a href="#"> Service</a> </li>
+                                        <li> <a href="#"> Team</a> </li>*@
+                                        @*<li> <a href="#"> Help</a> </li>*@
+                                        <li> <a href="#"> Contact</a> </li>
+                                    </ul>
+                                </div>
+                                @*<div class="col-md-6 px-4">
+                                    <ul>
+                                        <li> <a href="#"> Cab Faciliy</a> </li>
+                                        <li> <a href="#"> Fax</a> </li>
+                                        <li> <a href="#"> Terms</a> </li>
+                                        <li> <a href="#"> Policy</a> </li>
+                                        <li> <a href="#"> Refunds</a> </li>
+                                        <li> <a href="#"> Paypal</a> </li>
+                                    </ul>
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <h6> Newsletter</h6>
+                            <div class="social">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                            @*<form class="form-footer my-3">
+                                <input type="text" placeholder="search here...." name="search">
+                                <input type="button" value="Go">
+                            </form>
+                            <p>That's technology limitation of LCD monitors</p>*@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

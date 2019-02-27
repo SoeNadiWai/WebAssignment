@@ -1,0 +1,58 @@
+﻿@model MYCHARITY.Donation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Donation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonateAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonateAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DonationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
